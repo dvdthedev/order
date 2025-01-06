@@ -16,4 +16,6 @@ public class Product {
     public Double getPrice() {
         return price;
     }
+
+
 }
