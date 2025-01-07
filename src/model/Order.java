@@ -14,6 +14,11 @@ public class Order {
 
     private List<OrderItem> itens = new ArrayList<>();
 
+    public Order(OrderStatus status) {
+
+        this.status = status;
+    }
+
     public void addItem(OrderItem item){
         itens.add(item);
     }
@@ -22,11 +27,21 @@ public class Order {
         itens.remove(item);
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "moment=" + moment +
+                ", status=" + status +
+                ", itens=" + itens +
+                '}';
+    }
+
     public void total(){
      double accumulator;
      for(int i = 0; i < itens.toArray().length; i++){
         
      }
+
 
     }
 }

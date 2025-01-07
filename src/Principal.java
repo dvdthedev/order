@@ -1,3 +1,5 @@
+import model.Order;
+import model.OrderItem;
 import model.Product;
 import model.User;
 import model.enums.OrderStatus;
@@ -18,7 +20,7 @@ public class Principal {
         String name = sc.nextLine();
         System.out.print("Email: ");
         String email = sc.nextLine();
-        ArrayList<Product> products = new ArrayList<>();
+        Order order;
 
         System.out.print("Birth date (DD/MM/YYYY): ");
 
@@ -36,18 +38,24 @@ public class Principal {
         OrderStatus orderStatus = OrderStatus.valueOf(status);
         System.out.print("How many items to this order? ");
         int quantity = sc.nextInt();
-
-        int i = 1;
+        sc.nextLine();
+        int i = 0;
 
         while (quantity > i){
-            System.out.println("Enter #" + i + "item data: ");
+            int exibitionNumber = i + 1;
+            System.out.println("Enter #" + exibitionNumber  + " item data: ");
             System.out.print("Product name: ");
             String productName = sc.nextLine();
             System.out.print("Product price: ");
             double productPrice = sc.nextDouble();
+            sc.nextLine();
             System.out.print("Quantity: ");
             int productQuantity = sc.nextInt();
-            
+            sc.nextLine();
+            order = new Order(orderStatus);
+            order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
+            i++;
+            System.out.println(order);
         };
 
     }

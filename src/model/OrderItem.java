@@ -15,7 +15,16 @@ public class OrderItem {
         this.product = product;
     }
 
-    public static void subTotal(Integer quantity, Double price){
-        System.out.println(price * quantity);
+
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "quantity=" + quantity +
+                ", product=" + product  + ", Subtotal=" + subTotal() + "\n";
+    }
+
+    public double subTotal(){
+        return quantity * price;
     }
 }
