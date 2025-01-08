@@ -40,6 +40,7 @@ public class Principal {
         int quantity = sc.nextInt();
         sc.nextLine();
         int i = 0;
+        order = new Order(orderStatus);
 
         while (quantity > i){
             int exibitionNumber = i + 1;
@@ -52,11 +53,11 @@ public class Principal {
             System.out.print("Quantity: ");
             int productQuantity = sc.nextInt();
             sc.nextLine();
-            order = new Order(orderStatus);
             order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
             i++;
-            System.out.println(order);
-        };
 
+
+        };
+        System.out.println(order);
     }
 }

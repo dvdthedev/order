@@ -1,5 +1,7 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class User {
@@ -23,8 +25,10 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = dateFormat.format(birthDate);
+        return dateString;
     }
 
     public void setBirthDate(Date birthDate) {
@@ -37,5 +41,12 @@ public class User {
         this.birthDate = birthDate;
     }
 
+
+
     public User(){};
+
+    @Override
+    public String toString() {
+        return "Client: " + name + " (" + getBirthDate() + ") - " + email ;
+    }
 }
